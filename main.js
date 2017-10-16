@@ -51,6 +51,8 @@ window.onload=()=>{
 				panel[$y][$x]=turn;
 				drawScreen();
 				se.play();
+				
+				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 
 				turn=turn%2+1;
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
