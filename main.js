@@ -1,3 +1,4 @@
+var se;
 var turn;
 var panel;
 var c_0,c_1;
@@ -6,33 +7,27 @@ var canv,cont;
 var turnDisplay;
 var doc=document;
 
-
-
 var stone={black:2,white:2,};
 var mouse={x:0,y:0,};
 var index={x:0,y:0,};
 
 window.onload=()=>{
-
 	turnDisplay=doc.getElementById('turn');
 	canv=doc.getElementById('game');
 
 	c_0=doc.getElementById('c_0');
 	c_1=doc.getElementById('c_1');
 	cont=canv.getContext('2d');
-
-
+	
 	canv.width=640;
-
 	canv.height=640;
-
-
-
 	canv.style.backgroundColor='#009900';
-
-
+	
 	turn=2;
 	init();
+	
+	se=new Audio();
+	se.src='stone.mp3';
 	
 	drawScreen();
 
@@ -55,6 +50,7 @@ window.onload=()=>{
 				changeCheck($x,$y,turn,true);
 				panel[$y][$x]=turn;
 				drawScreen();
+				se.play();
 
 				turn=turn%2+1;
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
@@ -68,12 +64,9 @@ window.onload=()=>{
 	});
 }
 
-
 // Draw function methods
 
-
 function drawPanel(){
-
 	// Grid lines
 	for(i=0;i<9;i++){
 		drawLine(0,i*(640/8),canv.width,i*(640/8));
@@ -84,7 +77,6 @@ function drawPanel(){
 		drawLine(i*(640/8),0,i*(640/8),canv.height);
 	}
 
-
 	// 4 Dot points	
 	drawDot(160,160,7,'#1B1B1B');
 	drawDot(480,160,7,'#1B1B1B');
@@ -92,17 +84,12 @@ function drawPanel(){
 	drawDot(480,480,7,'#1B1B1B');
 }
 
-
-
 function setStroke(color,bold){
 	cont.beginPath();
 
 	cont.lineWidth=bold;
 	cont.strokeStyle=color;
-
 }
-
-
 
 function drawLine(x,y,x1,y1,bold,color){
 	setStroke(color,bold);
