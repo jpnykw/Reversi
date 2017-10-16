@@ -116,9 +116,9 @@ function drawStone(){
 		for(j=0;j<8;j++){
 			let stone=panel[i][j];
 			let canPut=canPutPos.indexOf(`${i},${j}`);
-			if(canPut!==1){
+			/*if(canPut!==1){
 				drawDot(j*80+40,i*80+40,24,'#006600');
-			}else if(stone){
+			}else */if(stone){
 				drawDot(j*80+40,i*80+40,24,['#FFF','#000'][stone-1]);
 			}
 		}
