@@ -30,7 +30,6 @@ window.onload=()=>{
 	se=new Audio();
 	se.src='stone.mp3';
 	
-	searchCanputPoint(2);
 	drawScreen();
 
 	canv.addEventListener('mousemove',e=>{
@@ -50,20 +49,9 @@ window.onload=()=>{
 
 			if(inMyRad&&changeCheck($x,$y,turn,false)){
 				changeCheck($x,$y,turn,true);
-				searchCanputPoint(turn);
-				if(canPutPos==''){
-					alert(0);
-					turn=turn%2+1;
-					searchCanputPoint(turn);
-					if(canPutPos==''){
-					
-					}else{
-						
-					}
-				}else{
-					panel[$y][$x]=turn;
-					turn=turn%2+1;
-				}
+
+				panel[$y][$x]=turn;
+				turn=turn%2+1;
 				drawScreen();
 				
 				se.play();
@@ -135,6 +123,7 @@ function drawStone(){
 
 function drawScreen(){
 	cont.clearRect(0,0,canv.width,canv.height);
+	searchCanputPoint(turn);
 	drawPanel();
 	drawStone();
 }
