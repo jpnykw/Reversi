@@ -1,4 +1,5 @@
 var se;
+var put;
 var turn;
 var panel;
 var c_0,c_1;
@@ -26,6 +27,8 @@ window.onload=()=>{
 	turn=2;
 	init();
 	
+	put=[];
+	
 	se=new Audio();
 	se.src='stone.mp3';
 	
@@ -50,8 +53,9 @@ window.onload=()=>{
 				changeCheck($x,$y,turn,true);
 				panel[$y][$x]=turn;
 				drawScreen();
-				se.play();
 				
+				put.push(se)
+				put[put.length-1].play();
 				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 
 				turn=turn%2+1;
