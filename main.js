@@ -54,7 +54,7 @@ window.onload=()=>{
 				panel[$y][$x]=turn;
 				drawScreen();
 				
-				put.push(se)
+				put.push(se);
 				put[put.length-1].play();
 				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 
@@ -76,10 +76,8 @@ function drawPanel(){
 	// Grid lines
 	for(i=0;i<9;i++){
 		drawLine(0,i*(640/8),canv.width,i*(640/8));
-
 	}
 	for(i=0;i<9;i++){
-
 		drawLine(i*(640/8),0,i*(640/8),canv.height);
 	}
 
