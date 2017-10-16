@@ -203,7 +203,7 @@ function searchCanputPoint(id){
 			if(panel[i][j]<1){
 				if(changeCheck(j,i,id,false)>0){
 					canPutPos.push(`${i},${j}`);
-					drawDot(j*80+40,i*80+40,24,'#006600');
+					//drawDot(j*80+40,i*80+40,24,'#006600');
 				}
 			}
 		}
