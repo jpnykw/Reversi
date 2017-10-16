@@ -3,6 +3,7 @@ var turn;
 var panel;
 var c_0,c_1;
 var canv,cont;
+var canPutPos;
 
 var turnDisplay;
 var doc=document;
@@ -29,6 +30,7 @@ window.onload=()=>{
 	se=new Audio();
 	se.src='stone.mp3';
 	
+	searchCanputPoint(2);
 	drawScreen();
 
 	canv.addEventListener('mousemove',e=>{
@@ -48,13 +50,14 @@ window.onload=()=>{
 
 			if(inMyRad&&changeCheck($x,$y,turn,false)){
 				changeCheck($x,$y,turn,true);
+				searchCanputPoint(turn);
 				panel[$y][$x]=turn;
+				turn=turn%2+1;
 				drawScreen();
 				
 				se.play();
 				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 
-				turn=turn%2+1;
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
 
 				countStones();
@@ -112,8 +115,11 @@ function drawStone(){
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
 			let stone=panel[i][j];
+			let canPut=canPutPos.indexOf(`${i},${j}`)>0;
 			if(stone){
 				drawDot(j*80+40,i*80+40,24,['#FFF','#000'][stone-1]);
+			}else if(canPut){
+				drawDot(j*80+40,i*80+40,24,'#77FFFFFF');
 			}
 		}
 	}
@@ -191,4 +197,18 @@ function countStones(){
 			stone.white+=panel[i][j]==1;
 		}
 	}
+}
+
+function searchCanputPoint(id){
+	canPutPos=[];
+	for(i=0;i<8;i++){
+		for(j=0;j<8;j++){
+			if(panel[i][j]<1){
+				if(changeCheck(j,i,id,false)>0){
+					canPutPos.push(`${i},${j}`);
+				}
+			}
+		}
+	}
+	return canPutPos=='';
 }
