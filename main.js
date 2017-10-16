@@ -115,10 +115,7 @@ function drawStone(){
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
 			let stone=panel[i][j];
-			let canPut=canPutPos.indexOf(`${i},${j}`);
-			/*if(canPut!==1){
-				drawDot(j*80+40,i*80+40,24,'#006600');
-			}else */if(stone){
+			if(stone){
 				drawDot(j*80+40,i*80+40,24,['#FFF','#000'][stone-1]);
 			}
 		}
@@ -206,6 +203,7 @@ function searchCanputPoint(id){
 			if(panel[i][j]<1){
 				if(changeCheck(j,i,id,false)>0){
 					canPutPos.push(`${i},${j}`);
+					drawDot(j*80+40,i*80+40,24,'#006600');
 				}
 			}
 		}
