@@ -51,8 +51,19 @@ window.onload=()=>{
 			if(inMyRad&&changeCheck($x,$y,turn,false)){
 				changeCheck($x,$y,turn,true);
 				searchCanputPoint(turn);
-				panel[$y][$x]=turn;
-				turn=turn%2+1;
+				if(canPutPos==''){
+					alert(0);
+					turn=turn%2+1;
+					searchCanputPoint(turn);
+					if(canPutPos==''){
+					
+					}else{
+						
+					}
+				}else{
+					panel[$y][$x]=turn;
+					turn=turn%2+1;
+				}
 				drawScreen();
 				
 				se.play();
@@ -208,5 +219,4 @@ function searchCanputPoint(id){
 			}
 		}
 	}
-	return canPutPos=='';
 }
