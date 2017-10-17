@@ -67,11 +67,11 @@ window.onload=()=>{
 				
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
 				countStones();
-				
-				result.innerText=`${['WHITE','BLACK'][(stone.black>stone.white)*1]} WIN`;
-				if(stone.black==stone.white)result.innerText='DRAW';
 			}		
 		}
+		
+		result.innerText=`${['WHITE','BLACK'][(stone.black>stone.white)*1]} WIN`;
+		if(stone.black==stone.white)result.innerText='DRAW';
 	});
 }
 
