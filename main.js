@@ -64,9 +64,6 @@ window.onload=()=>{
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
 
 				countStones();
-
-				c_0.innerText=stone.black;
-				c_1.innerText=stone.white;
 			}		
 		}
 	});
@@ -197,6 +194,9 @@ function countStones(){
 			stone.white+=panel[i][j]==1;
 		}
 	}
+	
+	c_0.innerText=stone.black;
+	c_1.innerText=stone.white;
 }
 
 function searchCanputPoint(id,draw){
@@ -218,4 +218,5 @@ function resetGame(){
 	turn=2;
 	init();
 	drawScreen();
+	countStones();
 }
