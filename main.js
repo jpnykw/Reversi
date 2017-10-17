@@ -1,6 +1,7 @@
 var se;
 var turn;
 var panel;
+var result;
 var c_0,c_1;
 var canv,cont;
 var canPutPos;
@@ -14,6 +15,7 @@ var index={x:0,y:0,};
 
 window.onload=()=>{
 	turnDisplay=doc.getElementById('turn');
+	result=doc.getElementById('result');
 	canv=doc.getElementById('game');
 
 	c_0=doc.getElementById('c_0');
@@ -65,6 +67,9 @@ window.onload=()=>{
 
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
 				countStones();
+				
+				result.innerText=['WHITE','BLACK'][(stone.black>stone.white)*1];
+				if(stone.black==stone.white)result.innerText='DRAW';
 			}		
 		}
 	});
