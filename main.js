@@ -212,3 +212,10 @@ function searchCanputPoint(id,draw){
 		}
 	}
 }
+
+function resetGame(){
+	stone={black:2,white:2,};
+	turn=2;
+	init();
+	drawScreen();
+}
