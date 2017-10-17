@@ -1,7 +1,7 @@
 # Reversi
 
 ## What is it
-> * Fully original project.  
+> * Fully original simple reversi engine  
 > * Used canvas  
 > * System of PVP  
 
