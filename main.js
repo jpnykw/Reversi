@@ -63,12 +63,13 @@ window.onload=()=>{
 				se.currentTime=0;
 				se.play();
 				
-				result.innerText=`${['WHITE','BLACK'][(stone.black>stone.white)*1]} WIN`;
-				if(stone.black==stone.white)result.innerText='DRAW';
 				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 				
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
 				countStones();
+				
+				result.innerText=`${['WHITE','BLACK'][(stone.black>stone.white)*1]} WIN`;
+				if(stone.black==stone.white)result.innerText='DRAW';
 			}		
 		}
 	});
