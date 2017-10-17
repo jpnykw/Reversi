@@ -52,6 +52,10 @@ window.onload=()=>{
 
 				panel[$y][$x]=turn;
 				turn=turn%2+1;
+				
+				searchCanputPoint(turn,false);
+				if(canPutPos=='')turn=turn%2+1;
+				
 				drawScreen();
 				
 				se.play();
@@ -123,7 +127,7 @@ function drawStone(){
 
 function drawScreen(){
 	cont.clearRect(0,0,canv.width,canv.height);
-	searchCanputPoint(turn);
+	searchCanputPoint(turn,true);
 	drawPanel();
 	drawStone();
 }
@@ -145,7 +149,6 @@ function init(){
 
 function get(x,y,dx,dy){
 	if(panel[y+dy]==void(0)||panel[0][x+dx]==void(0))return 0;
-	let stack=panel[y+dy][x+dx];
 	return panel[y+dy][x+dx];
 }
 
@@ -196,14 +199,14 @@ function countStones(){
 	}
 }
 
-function searchCanputPoint(id){
+function searchCanputPoint(id,draw){
 	canPutPos=[];
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
 			if(panel[i][j]<1){
-				if(changeCheck(j,i,id,false)>0){
+				if(changeCheck(j,i,id,false)){
 					canPutPos.push(`${i},${j}`);
-					drawDot(j*80+40,i*80+40,24,'#006600');
+					if(draw)drawDot(j*80+40,i*80+40,24,'#006600');
 				}
 			}
 		}
