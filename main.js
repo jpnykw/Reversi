@@ -59,7 +59,7 @@ window.onload=()=>{
 				
 				se.pause();
 				se.currentTime=0;
-				se.play()
+				se.play();
 				
 				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 
