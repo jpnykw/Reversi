@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<script src="main.js"></script>
-		<title>Reversi v2.1</title>
+		<title>Reversi v2.2</title>
 
 		<style>
 			body{
@@ -14,15 +14,20 @@
 				-webkit-user-select: none;
 				-ms-user-select: none;
 			}
+			
+			#title{
+				font-size:30px;
+			}
 		</style>
 	</head>
 
 	<body>
 		<center>
+			<div id="title">REVERSI</div>
 			<h1>Black:<span id="c_0">2</span></h1>
 			<h1>White:<span id="c_1">2</span></h1>
 			<canvas id="game"></canvas>
-			<h1>TURN : <span id="turn">BLACK</span></h1>
+			<h1>TURN : <span id="turn">BLACK</span></h1><br>
 			<h2 onclick="resetGame()">RESET GAME</h2>
 		</center>
 	</body>
