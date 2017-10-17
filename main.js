@@ -57,7 +57,10 @@ window.onload=()=>{
 				
 				drawScreen();
 				
-				se.play();
+				se.pause();
+				se.currentTime=0;
+				se.play()
+				
 				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
