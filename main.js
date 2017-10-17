@@ -49,7 +49,6 @@ window.onload=()=>{
 
 			if(inMyRad&&changeCheck($x,$y,turn,false)){
 				changeCheck($x,$y,turn,true);
-
 				panel[$y][$x]=turn;
 				turn=turn%2+1;
 				
@@ -62,7 +61,6 @@ window.onload=()=>{
 				drawDot($x*80+40,$y*80+40,7,'#BB0000');
 
 				turnDisplay.innerText=['WHITE','BLACK'][turn-1];
-
 				countStones();
 			}		
 		}
@@ -214,7 +212,6 @@ function searchCanputPoint(id,draw){
 }
 
 function resetGame(){
-	stone={black:2,white:2,};
 	turn=2;
 	init();
 	drawScreen();
