@@ -5,11 +5,6 @@
 > * Used canvas  
 > * System of PVP  
 
-Project link : https://jpnykw.github.io/Reversi/
-
-
-
-
 # Update log
 
 NEW  
